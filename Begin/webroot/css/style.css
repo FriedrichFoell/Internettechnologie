@@ -1,0 +1,43 @@
+body {
+  background-color: white;
+  background-image: url("./images/Background.jpg");
+  background-size: cover;
+  color: #333333;
+}
+
+h1 {
+  background-color: #005205;
+  color: white;
+  text-shadow: 3px 3px 7px black;
+  text-align: center;
+}
+
+a {
+  float: left;
+  display: block;
+  color: black;
+  background-color: #0a6300;
+  padding: 40px;
+  height: auto;
+  width: 22%;
+}
+
+.zoom {
+  height: 300px;
+  overflow: hidden;
+}
+
+.zoom img {
+  transition: transform .5s ease;
+}
+
+.zoom:hover img {
+  transform: scale(1.5);
+}
+
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: #454444;
+  color: white;
+}
