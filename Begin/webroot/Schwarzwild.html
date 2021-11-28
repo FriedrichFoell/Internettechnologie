@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <title>Schwarzwild</title>
+   <script src="main.js"></script>
   <meta name="description" content="VFH ICS WEBSTART" />
   <meta name="author" content="Friedrich Föll" />
   <link rel="stylesheet" href="./css/StyleNew.css" />
@@ -68,11 +69,13 @@
     </ul>
   </section>
   <section>
-    <label for="Comment">Kommentar:</label>
+    <button onclick="KommentarKnopf('Kommentarfeld')">Kommentar verfassen</button>
     <br><br>
-    <textarea id="Kommentarfeld" name="Kommentarfeld" rows="4" cols="50" font-size=large>
+    <textarea id="Kommentarfeld" name="Kommentar" onkeyup="countChars(this)" rows="4" cols="50" font-size=large style="display:none" maxlength="500">
+  </textarea>
+  <p id="Zeichen" >500 Zeichen verfügbar</p>
 
-      </textarea>
+
   </section>
   <h5>Quellen</h5>
   <ul>
