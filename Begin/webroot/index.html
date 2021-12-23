@@ -13,6 +13,7 @@
 <body>
   <header>
     <h1>Einheimische Wildarten</h1>
+	   
   </header>
   <nav>
     <a href="Schwarzwild.html">
@@ -151,6 +152,76 @@
       </div>
     </a>
     <script src="./js/main.js"></script>
+	 <div class="page-container">
+      <h2>Informationen</h2>
+      <section id="game-selector">
+        <span>Thema: </span>
+        <select>
+          <option value="" disabled selected>Bitte auswählen...</option>
+          <option value="Wild.json">Wild</option>
+          <option value="Jagd.json">Jagd</option>
+          <option value="Geschichte.json">Geschichte</option>
+        </select>
+      </section>
+      <section id="game-panel">
+        <h3 class="title">Kein Thema ausgewählt.</h3>
+        <a class="ref" target="_blank" href="#">
+          <span class="label"></span>
+        </a>
+        <p class="description"></p>
+      </section>
+    </div>
+    <script>
+      "use strict"; // ältere JavaScript Systax verbieten
+
+      // select-Element zur Spielauswahl im DOM finden
+      var gameSelector = document.querySelector("#game-selector select");
+
+      // Auf Änderungen des select-Elements reagieren
+      gameSelector.addEventListener("change", function(event) {
+        // Referenz auf select-Elements
+        var select = this;
+        // Ausgewählten Wert auslesen
+        var gameFileName = select.value;
+
+        // Informationen zum Spiel per AJAX laden.
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+
+            // Inhalt der Daten von JSON in JavaScript-Objekt wandeln
+            var gameData = JSON.parse(this.responseText);
+
+            // Anzeige für das Spiel mit geladeden Daten aktualisieren
+            updateGamePanel(gameData);
+
+          }
+        };
+        xhttp.open("GET", "./" + gameFileName, true);
+        xhttp.send();
+      });
+
+      var updateGamePanel = function(gameData) {
+
+        // Anzeigebereich für Spielinformationen im DOM finden
+        var gamePanel = document.querySelector("#game-panel");
+
+        // Titel setzen
+        var title = gamePanel.querySelector(".title");
+        title.innerHTML = gameData.title;
+
+        // Quellenangabe setzen
+        var ref = gamePanel.querySelector(".ref");
+        var label = ref.querySelector(".label");
+        ref.href = gameData.ref;
+        label.innerHTML = gameData.ref;
+
+        // Beschreibung setzten
+        var description = gamePanel.querySelector(".description");
+        description.innerHTML = gameData.description;
+      }
+
+    </script>
 </body>
 <footer>
   <address>
