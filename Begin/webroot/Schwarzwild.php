@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html lang="de">
 
 <head>
@@ -69,12 +70,20 @@
     </ul>
   </section>
   <section>
+
     <button onclick="KommentarKnopf('Kommentarfeld')">Kommentar verfassen</button>
     <br><br>
-    <textarea id="Kommentarfeld" name="Kommentar" onkeyup="countChars(this)" rows="4" cols="50" font-size=large style="display:none" maxlength="500">
-  </textarea>
-  <p id="Zeichen" >500 Zeichen verfügbar</p>
 
+    <?php
+	   if (isset($_POST['Kommentarfeld'])) {
+       file_put_contents('Kommentare.txt',"Schwarzwild-Kommentar:".$_POST['Kommentarfeld']."\n",FILE_APPEND);
+	     echo "Kommentar gespeichert";}
+    ?>
+    <form name "test"  method="POST">
+    <textarea id="Kommentarfeld" name="Kommentarfeld" rows="4" cols="50" font-size=large style="display:none" maxlength="500">
+    </textarea>
+    <input name=submit type="submit" name="speichern" value="speichern" />
+    </form>
 
   </section>
   <h5>Quellen</h5>
@@ -83,6 +92,8 @@
 
   </ul>
   <script src="./js/main.js"></script>
+
+
 </body>
 
 </html>

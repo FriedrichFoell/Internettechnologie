@@ -72,10 +72,21 @@
     </ul>
   </section>
   <section>
-    <button onclick="KommentarKnopf('Kommentarfeld')";>Kommentar verfassen</button>
+
+    <button onclick="KommentarKnopf('Kommentarfeld')">Kommentar verfassen</button>
     <br><br>
-    <textarea id="Kommentarfeld" name="Kommentar" rows="4" cols="50" font-size=large style="display:none">
-  </textarea>
+
+    <?php
+	   if (isset($_POST['Kommentarfeld'])) {
+       file_put_contents('Kommentare.txt',"Damwild-Kommentar:".$_POST['Kommentarfeld']."\n",FILE_APPEND);
+	     echo "Kommentar gespeichert";}
+    ?>
+    <form name "test"  method="POST">
+    <textarea id="Kommentarfeld" name="Kommentarfeld" rows="4" cols="50" font-size=large style="display:none" maxlength="500">
+    </textarea>
+    <input name=submit type="submit" name="speichern" value="speichern" />
+    </form>
+
   </section>
   <h6>Quellen</h6>
   <ul>

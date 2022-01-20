@@ -1,0 +1,5 @@
+
+Rehwild-Kommentar:Das Rehwild ist eine einheimische Art in Deutschland    
+Rotwild-Kommentar:Der Rothirsch ist ein elegantes Tier      
+Schwarzwild-Kommentar:Die Frischlinge sind ziemlich niedlich.    
+Feldhase-Kommentar:Der Hase hat einmal in einem Rennen gegen einen Igel verloren      
